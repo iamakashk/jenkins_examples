@@ -14,15 +14,6 @@ pipeline {
                 echo "Hello ${params.github_url}"
             }
         }
-
-        stage('Hello World') {
-            steps {
-                echo 'Hello I am talking from github'
-
-                echo "Hello ${params.github_url}"
-            }
-        }
-
             stage('Checkout') {
         steps {
             git branch: 'main',
