@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        string(name: 'github_url', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
    }
 
     
@@ -11,14 +11,14 @@ pipeline {
             steps {
                 echo 'Hello I am talking from github'
 
-                echo "Hello ${params.PERSON}"
+                echo "Hello ${params.github_url}"
             }
         }
 
             stage('Checkout') {
         steps {
             git branch: 'main',
-                url: 'https://github.com/iamakashk/devops-full-stack-project-example.git'
+                url: "${params.github_url}"
         }
     }
     }
