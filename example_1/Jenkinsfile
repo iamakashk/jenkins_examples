@@ -14,5 +14,12 @@ pipeline {
                 echo "Hello ${params.PERSON}"
             }
         }
+
+            stage('Checkout') {
+        steps {
+            git branch: 'main',
+                url: 'https://github.com/iamakashk/devops-full-stack-project-example.git'
+        }
+    }
     }
 }
